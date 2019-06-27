@@ -1,0 +1,33 @@
+class cars:
+
+    num_cars=0
+    raise_amt=1.03
+
+    def __init__(self,brand,model,ymfg,power,cost):
+        self.brand=brand
+        self.model=model
+        self.ymfg=ymfg
+        self.power = power
+        self.cost=cost
+
+        cars.num_cars +=1
+
+    def fullname(self):
+        return '{} {}'.format(self.brand,self.model)
+
+    def annual_rise(self):
+        self.cost=int(self.cost*self.raise_amt)
+
+    @classmethod
+    def set_raise_amt(cls,amount):
+        cls.raise_amt=amount
+    def supercar(self):
+        if (self.power > 1200):
+            print("Its belong to super car group")
+        else:
+            print("Its not belong to supercar group")
+
+car_1 = cars('Honda','City',2015,1500,1005000)
+car_2 = cars('Tata','Tiago',2018,1200,45000)
+car_1.supercar()
+car_2.supercar()
